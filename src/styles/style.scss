@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 16px;
+  font-size: 16px;
+  color: #000000FF;
+  background: #E9F4F6;
+}
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15%;
+}
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+.buttons {
+  flex-direction: row;
+  button {
+    border: 1px solid #cccccc;
+    width: 45%;
+    margin: auto;
+    border-radius: 3px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 5px 10px 30px 1px rgb(0 0 0 / 5%);
+
+    &:hover {
+      background-color: #E9F4F6;
+      transition: 150ms all ease-in-out;
+    }
+  }
+}
+.form-group {
+  padding: 20px;
+  min-width: 400px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 30px 1px rgb(0 0 0 / 15%);
+  background-color: #fff;
+  position: relative;
+}
+.form-group::before {
+  content: '';
+  height: 95%;
+  width: 95%;
+  border-radius: 10px;
+  background: #fff;
+  position: absolute;
+  top: -2%;
+  left: 8%;
+  z-index: -1;
+}
+.form-title {
+  padding: 30px;
+}
+.form-item {
+  padding: 10px;
+}
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px;
+}
+input,select,.style-chooser .vs__search::placeholder,
+.style-chooser .vs__dropdown-toggle,
+.style-chooser .vs__dropdown-menu{
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  background: #ffffff !important;
+  outline: none;
+  height: 42px;
+  color: #000;
+  font-size: 11px;
+  padding-left: 20px;
+  &:hover {
+    border-color: black;
+    transition: 300ms all ease-in-out;
+  }
+}
+label {
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+.gender-items {
+  display: flex;
+  align-items: center;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  color: #000;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #cccccc;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+}
+.personal-info {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.sms-notification {
+  flex-direction: row;
+  align-items: center;
+}
+.v-select input {
+  height: 32px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    &:after {
+      left: 5px;
+      top: 1px;
+      width: 3px;
+      height: 8px;
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      &:checked ~ .checkmark:after {
+        display: block;
+      }
+      &:checked ~ .checkmark {
+        background-color: #fff;
+      }
+    }
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+}
+
+
+
