@@ -3,7 +3,7 @@
     <div class="content">
       <div class="personal-info">
         <div class="form-title">
-          <h3>Образование и навыки</h3>
+          <h3>{{ $store.state.module }}</h3>
         </div>
         <div class="form-group">
           <router-view />

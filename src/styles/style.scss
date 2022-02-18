@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 
 * {
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,26 +13,50 @@
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
+html {
+  height: 100%;
+
+}
+#app {
+  height: 100%;
+}
+
+
 body {
+  height: 100%;
   font-family: 'Ubuntu Condensed', sans-serif;
   font-size: 16px;
   font-size: 16px;
   color: #000000FF;
   background: #E9F4F6;
 }
+
 .content {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 15%;
 }
+
 .form-item {
   display: flex;
   flex-direction: column;
 }
+
+button {
+  cursor: pointer;
+}
+.buttons .active {
+  border-color: black;
+  background-color: #E9F4F6;
+}
 .buttons {
   flex-direction: row;
+
   button {
     border: 1px solid #cccccc;
     width: 45%;
@@ -47,14 +72,16 @@ body {
     }
   }
 }
+
 .form-group {
-  padding: 20px;
+  padding: 15px;
   min-width: 400px;
   border-radius: 10px;
   box-shadow: 5px 10px 30px 1px rgb(0 0 0 / 15%);
   background-color: #fff;
   position: relative;
 }
+
 .form-group::before {
   content: '';
   height: 95%;
@@ -66,21 +93,26 @@ body {
   left: 8%;
   z-index: -1;
 }
+
 .form-title {
-  padding: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
 }
+
 .form-item {
   padding: 10px;
 }
-select{
+
+select, textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   padding: 5px;
 }
-input,select,.style-chooser .vs__search::placeholder,
+
+input, select, .style-chooser .vs__search::placeholder,
 .style-chooser .vs__dropdown-toggle,
-.style-chooser .vs__dropdown-menu{
+.style-chooser .vs__dropdown-menu {
   border: 1px solid #cccccc;
   border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -90,35 +122,53 @@ input,select,.style-chooser .vs__search::placeholder,
   outline: none;
   height: 42px;
   color: #000;
-  font-size: 11px;
+  font-size: 14px;
   padding-left: 20px;
-  &:hover {
-    border-color: black;
-    transition: 300ms all ease-in-out;
-  }
 }
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  background: #ffffff !important;
+  outline: none;
+  color: #000;
+  font-size: 0.8rem;
+}
+
 label {
   margin-bottom: 15px;
   margin-right: 15px;
 }
+
 .gender-items {
   display: flex;
   align-items: center;
 }
+
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
+
 [type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
+[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 28px;
   cursor: pointer;
   line-height: 20px;
   color: #000;
 }
+
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
   content: '';
@@ -131,6 +181,7 @@ label {
   border-radius: 100%;
   background: #fff;
 }
+
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
   content: '';
@@ -144,35 +195,43 @@ label {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
+
 [type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
+
 [type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
+
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
 }
+
 .personal-info {
   padding: 20px;
+  padding-right: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .sms-notification {
   flex-direction: row;
   align-items: center;
 }
+
 .v-select input {
   height: 32px;
 }
+
 .container {
   display: block;
   position: relative;
@@ -184,6 +243,7 @@ select:-webkit-autofill {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
   .checkmark {
     position: absolute;
     top: 0;
@@ -192,6 +252,7 @@ select:-webkit-autofill {
     width: 18px;
     background-color: #fff;
     border: 1px solid #ccc;
+
     &:after {
       left: 5px;
       top: 1px;
@@ -203,29 +264,93 @@ select:-webkit-autofill {
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
+
     &:after {
       content: "";
       position: absolute;
       display: none;
     }
   }
-    input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
-      &:checked ~ .checkmark:after {
-        display: block;
-      }
-      &:checked ~ .checkmark {
-        background-color: #fff;
-      }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark:after {
+      display: block;
     }
+
+    &:checked ~ .checkmark {
+      background-color: #fff;
+    }
+  }
+
   &:hover input ~ .checkmark {
     background-color: #ccc;
   }
+}
 
+.btn {
+  transition: all 300ms ease-in-out;
+  margin: 2px;
+  border-radius: 30px;
+  width: 18px;
+  height: 18px;
+  background-color: darkgreen;
+  border: none;
+  background: linear-gradient(#fff, #fff),
+  linear-gradient(#fff, #fff),
+  green;
+  background-position: center;
+  background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
+}
+
+.del {
+  background-color: tomato;
+  transform: rotate(-135deg);
+
+}
+
+.del:hover, .btn:hover {
+  opacity: 0.5;
+  transition: 1s all ease;
+  transform: rotate(-180deg);
+}
+.preview {
+  //text-align: center;
+  font-size: 18px;
+}
+.hr {
+  border-top: 0.5px solid #ccc;
+  border-bottom: none;
+}
+.exp {
+  word-wrap: break-word;
+  max-width: 300px;
+}
+@media (max-width: 850px) {
+  .content {
+    margin: 0;
+  }
+}
+@media (max-width: 660px) {
+  .form-group:before {
+    content: none;
+  }.form-group {
+    width: 100%;
+    min-width: 0;
+  }
+  .personal-info {
+    justify-content: center;
+  }
+  .content {
+    height: auto;
+  }
+;
 }
 
 

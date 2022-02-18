@@ -2,59 +2,68 @@
   <form action="">
     <div class="form-item">
       <label>Образование</label>
-      <v-select v-model="value" :options="options" />
-      <!--      <select v-model="selected">-->
-      <!--        <option v-for="option in options" :key="option.value">-->
-      <!--          {{ option.text }}-->
-      <!--        </option>-->
-      <!--      </select>-->
+      <v-select
+        label="name"
+        @input="setterGrade"
+        :options="$store.state.grade"
+        :value="$store.state.activeGrade"
+      ></v-select>
     </div>
     <div class="form-item">
       <label>Навыки</label>
       <v-select
+        label="name"
         taggable
         multiple
-        :reduce="(option) => option.id"
-        :options="options2"
+        @input="setterSkills"
+        :options="$store.state.skills"
+        :value="$store.state.activeSkill"
       />
     </div>
     <div class="form-item sms-notification">
       <label class="container">
-        <input type="checkbox" checked="checked" />
+        <input v-model="user.sms" type="checkbox" checked="checked" />
         <span class="checkmark"></span>
         Оповестить по SMS
       </label>
     </div>
     <div class="form-item buttons">
       <button @click.prevent="$router.push({ name: 'home' })">Назад</button>
-      <button>Вперед</button>
+      <button @click.prevent="$router.push({ name: 'experience' })">
+        Вперед
+      </button>
     </div>
   </form>
 </template>
 <script>
 export default {
-  name: "educationData",
+  name: "educationForm",
   data() {
-    return {
-      value: [],
-      value2: [],
-      selected: 1,
-      options: [
-        "Среднее",
-        "Средне-специальное",
-        "Неоконченное высшее",
-        "Бакалавр",
-        "Магистрант",
-        "Аспирант",
-      ],
-      options2: [
-        { label: "Vue", id: 1 },
-        { label: "React", id: 2 },
-        { label: "Angular", id: 3 },
-        { label: "Svelte", id: 4 },
-        { label: "Ember.js", id: 5 },
-      ],
-    };
+    return {};
+  },
+  created() {
+    this.$store.commit("setterModule", "Данные об образовании");
+  },
+  methods: {
+    setterGrade(val) {
+      this.$store.commit("setterGrade", val);
+    },
+    setterSkills(val) {
+      this.$store.commit("setterSkills", val);
+    },
+  },
+  computed: {
+    store() {
+      return this.$store.state;
+    },
+    user: {
+      get() {
+        return this.$store.state.user;
+      },
+      set(value) {
+        this.$store.commit("setterUser", value);
+      },
+    },
   },
 };
 </script>

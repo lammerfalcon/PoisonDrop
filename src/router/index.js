@@ -1,7 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import PersonalData from "../components/personalData";
-import EducationData from "../components/education";
+import PersonalDForm from "../components/personal";
+import EducationForm from "../components/education";
+import ExperienceForm from "../components/experience";
+import GithubForm from "../components/github";
+import previewForm from "../components/preview";
 
 Vue.use(VueRouter);
 
@@ -9,18 +12,33 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: PersonalData,
+    component: PersonalDForm,
   },
   {
     path: "/education",
     name: "education",
-    component: EducationData,
+    component: EducationForm,
+  },
+  {
+    path: "/experience",
+    name: "experience",
+    component: ExperienceForm,
+  },
+  {
+    path: "/github",
+    name: "github",
+    component: GithubForm,
+  },
+  {
+    path: "/preview",
+    name: "preview",
+    component: previewForm,
   },
 ];
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: "/resume",
   routes,
 });
 
