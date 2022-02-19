@@ -1,5 +1,5 @@
 <template>
-  <div class="preview">
+  <div v-if="$store.state.user.name" class="preview">
     <div class="form-item">
       <span>
         {{ $store.state.user.lastname }} {{ $store.state.user.name }}</span
@@ -8,7 +8,7 @@
       <span>{{ $store.state.user.birthdate }}</span>
       <span>{{ $store.state.user.phone }}</span>
       <span>{{ $store.state.user.gender }}</span>
-      <span>{{ $store.state.user.sms }}</span>
+      <span v-if="$store.state.user.sms">Оповестить по смс</span>
     </div>
     <hr class="hr" />
     <div class="form-item">
@@ -32,7 +32,7 @@
         Github профиль
       </button>
     </div>
-    <div v-if="activeTab === 'experience'" class="form-item">
+    <div v-if="activeTab === 'experience'" class="form-item experience">
       <span
         class="exp"
         v-for="(item, index) in $store.state.experience"
@@ -55,6 +55,11 @@
       <button @click.prevent="$router.push({ name: 'github' })">Назад</button>
       <button @click.prevent="showData()">Отправить данные</button>
     </div>
+    <div v-if="dialogVisible" class="alert-wrapper" @click.stop="hideDialog">
+      <div @click.stop class="alert" role="alert">
+        <span>Резюме отпралвено</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -64,16 +69,28 @@ export default {
   data() {
     return {
       activeTab: "experience",
+      dialogVisible: false,
     };
   },
   created() {
     this.$store.commit("setterModule", "Предпросмотр");
-    console.log(this.$store.state);
     return this.$store.state;
   },
   methods: {
     setActiveTab(tab) {
       this.activeTab = tab;
+    },
+    hideDialog() {
+      this.dialogVisible = false;
+    },
+    showData() {
+      this.dialogVisible = true;
+      console.log(this.$store.state.user);
+      console.log(this.$store.state.activeGrade);
+      console.log(this.$store.state.activeSkill);
+      console.log(this.$store.state.githubData);
+      console.log(this.$store.state.experience);
+      setTimeout(() => (this.dialogVisible = false), 1500);
     },
   },
 };

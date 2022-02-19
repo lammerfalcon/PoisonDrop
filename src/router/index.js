@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "personal",
     component: PersonalDForm,
   },
   {
@@ -38,7 +38,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: "/resume",
+  base: "/",
   routes,
 });
 

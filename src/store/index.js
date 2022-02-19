@@ -6,7 +6,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     module: "",
-    user: [],
+    user: {
+      name: "",
+      lastname: "",
+      email: "",
+      phone: "+7",
+      birthdate: "",
+      gender: "",
+      sms: true,
+    },
     grade: [
       { name: "Среднее" },
       { name: "Средне-специальное" },
@@ -22,7 +30,7 @@ export default new Vuex.Store({
       { name: "Svelte" },
       { name: "Ember.js" },
     ],
-    activeGrade: "",
+    activeGrade: [],
     activeSkill: "",
 
     experience: [
@@ -38,6 +46,7 @@ export default new Vuex.Store({
     user: (state) => state.user,
     options: (state) => state.options,
     experience: (state) => state.experience,
+    activeGrade: (state) => state.activeGrade,
   },
   mutations: {
     setterGrade: (state, options) => (state.activeGrade = options),

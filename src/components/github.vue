@@ -24,7 +24,6 @@ export default {
   computed: {
     user: {
       get() {
-        console.log(this.$store.state);
         return this.$store.state.user;
       },
       set(value) {
@@ -46,14 +45,6 @@ export default {
     ...mapActions({
       getGithubData: "getData",
     }),
-    // async getUser() {
-    //   const response = await fetch(
-    //     `https://api.github.com/users/${this.username}`
-    //   );
-    //   const data = await response.json();
-    //   console.log(data);
-    //   await this.$router.push({ name: "preview" });
-    // },
   },
 };
 </script>

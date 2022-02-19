@@ -13,13 +13,16 @@
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
 *::-webkit-scrollbar {
   display: none;
 }
+
 html {
   height: 100%;
 
 }
+
 #app {
   height: 100%;
 }
@@ -45,15 +48,18 @@ body {
 .form-item {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 button {
   cursor: pointer;
 }
+
 .buttons .active {
   border-color: black;
   background-color: #E9F4F6;
 }
+
 .buttons {
   flex-direction: row;
 
@@ -223,6 +229,7 @@ select:-webkit-autofill {
   flex-wrap: wrap;
 }
 
+
 .sms-notification {
   flex-direction: row;
   align-items: center;
@@ -320,27 +327,101 @@ select:-webkit-autofill {
   transition: 1s all ease;
   transform: rotate(-180deg);
 }
+
 .preview {
-  //text-align: center;
   font-size: 18px;
 }
+
 .hr {
   border-top: 0.5px solid #ccc;
   border-bottom: none;
+  width: 100%;
 }
+
+.experience {
+  align-items: center;
+}
+
 .exp {
   word-wrap: break-word;
-  max-width: 300px;
+  max-width: 350px;
+
 }
+
+.required {
+  font-size: 14px;
+  color: #ccc;
+  position: absolute;
+  top: 66px;
+  right: 15px;
+  z-index: 999;
+}
+
+.birthdate {
+  right: 175px;
+}
+
+.required--error .required {
+  color: rgba(255, 99, 71, 0.51);
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+.alert-wrapper {
+  height: 100vh;
+  width: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  height: 100px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 30px 1px rgb(0 0 0 / 15%);
+  color: lightgreen;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 @media (max-width: 850px) {
   .content {
     margin: 0;
   }
 }
+
 @media (max-width: 660px) {
   .form-group:before {
     content: none;
-  }.form-group {
+  }
+  .form-group {
     width: 100%;
     min-width: 0;
   }
