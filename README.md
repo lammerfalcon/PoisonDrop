@@ -25,13 +25,13 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-#Используемые технологии:
-###Vue 2
-###Vue-router 3.5.1
-###Vuex 3.6.2
-###Vuelidate 0.7.7
-###SCSS
-###V-calendar
+# Используемые технологии:
+### Vue 2
+### Vue-router 3.5.1
+### Vuex 3.6.2
+### Vuelidate 0.7.7
+### SCSS
+### V-calendar
 
 
 
