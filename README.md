@@ -1,7 +1,7 @@
 # Тестовое задание для PoisonDrop
-## Форма для создания резюме с валидацией и получением данных по профилю Github
+## Form for creating a resume with validation and getting profile data from Github
 ![alt text](/src/assets/img/screen.png)
-## Инструкция билдинга проекта ниже.
+
 ## Project setup
 ```
 npm install
@@ -25,7 +25,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-# Используемые технологии:
+# technologies stack:
 ### Vue 2
 ### Vue-router 3.5.1
 ### Vuex 3.6.2
