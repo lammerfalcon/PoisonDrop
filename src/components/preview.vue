@@ -57,7 +57,7 @@
     </div>
     <div v-if="dialogVisible" class="alert-wrapper" @click.stop="hideDialog">
       <div @click.stop class="alert" role="alert">
-        <span>Резюме отпралвено</span>
+        <span>Резюме отправлено</span>
       </div>
     </div>
   </div>
