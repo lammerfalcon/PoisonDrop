@@ -354,6 +354,8 @@ select:-webkit-autofill {
   position: absolute;
   top: 66px;
   right: 15px;
+}
+.required.select  {
   z-index: 999;
 }
 

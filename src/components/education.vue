@@ -12,7 +12,7 @@
         :options="$store.state.grade"
         :value="$store.state.activeGrade"
       ></v-select>
-      <span class="required" v-if="!$v.activeGrade.required">
+      <span class="required select" v-if="!$v.activeGrade.required">
         Обязательное поле
       </span>
     </div>
