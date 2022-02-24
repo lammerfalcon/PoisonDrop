@@ -1,4 +1,3 @@
-# Test task for PoisonDrop
 ## Form for creating a resume with validation and getting profile data from Github
 ![alt text](/src/assets/img/screen.png)
 
