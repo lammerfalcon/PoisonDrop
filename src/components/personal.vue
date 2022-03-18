@@ -1,6 +1,9 @@
 <template>
   <form action="">
-    <div class="form-item" :class="{ 'required--error': this.$v.user.$error }">
+    <div
+      class="form-item"
+      :class="{ 'required--error': this.$v.user.lastname.$error }"
+    >
       <label>Фамилия</label>
       <input v-model="user.lastname" type="text" />
       <span class="required" v-if="!$v.user.lastname.required">
@@ -8,9 +11,6 @@
       </span>
       <span class="required" v-if="!$v.user.lastname.minLength">
         Минимальное колличество символов: 3
-      </span>
-      <span class="required" v-if="$v.user.lastname.$error">
-        Введите фамилию
       </span>
     </div>
     <div class="form-item" :class="{ 'required--error': this.$v.user.$error }">
@@ -22,7 +22,6 @@
       <span class="required" v-if="!$v.user.name.minLength">
         Минимальное колличество символов: 3
       </span>
-      <span class="required" v-if="$v.user.name.$error"> Введите имя </span>
     </div>
     <div class="form-item" :class="{ 'required--error': this.$v.user.$error }">
       <label>Email</label> <input type="email" v-model="user.email" />
@@ -102,13 +101,13 @@ export default {
   validations: {
     user: {
       lastname: {
-        minLength: minLength(3),
         required,
+        minLength: minLength(3),
         alphaCyrillic: cyrillic,
       },
       name: {
-        minLength: minLength(3),
         required,
+        minLength: minLength(3),
         isCyrillic: cyrillic,
       },
       phone: {

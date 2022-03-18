@@ -34,6 +34,10 @@ const routes = [
     name: "preview",
     component: previewForm,
   },
+  {
+    path: "*",
+    redirect: { name: "personal" },
+  },
 ];
 
 const router = new VueRouter({

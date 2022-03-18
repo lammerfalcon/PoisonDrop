@@ -11,7 +11,6 @@ const getters = {
 const actions = {
   setUser({ commit, payload }) {
     commit("setterUser", payload);
-
   },
 };
 

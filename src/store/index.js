@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    token_bot: "5034858680:AAEHeqBDtBk0BBl4gSdKfCumnh9B3XvtdUI",
     module: "",
     user: {
       name: "",
@@ -31,14 +32,14 @@ export default new Vuex.Store({
       { name: "Ember.js" },
     ],
     activeGrade: [],
-    activeSkill: "",
+    activeSkill: [],
 
     experience: [
       {
         name: "",
       },
     ],
-    githubData: [],
+    githubData: {},
   },
   getters: {
     githubData: (state) => state.githubData,

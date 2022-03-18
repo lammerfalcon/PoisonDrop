@@ -53,7 +53,7 @@
     </div>
     <div class="form-item buttons">
       <button @click.prevent="$router.push({ name: 'github' })">Назад</button>
-      <button @click.prevent="showData()">Отправить данные</button>
+      <button @click.prevent="sendData()">Отправить данные</button>
     </div>
     <div v-if="dialogVisible" class="alert-wrapper" @click.stop="hideDialog">
       <div @click.stop class="alert" role="alert">
@@ -70,10 +70,22 @@ export default {
     return {
       activeTab: "experience",
       dialogVisible: false,
+      my_response: "",
     };
   },
   created() {
     this.$store.commit("setterModule", "Предпросмотр");
+    this.my_response = `Имя: ${this.$store.state.user.name}
+    %0AФамилия: ${this.$store.state.user.lastname}
+    %0AEmail: ${this.$store.state.user.email}
+    %0AТелефон: ${this.$store.state.user.phone}
+    %0AДата рождения: ${this.$store.state.user.birthdate}
+    %0AОбразование: ${this.$store.state.activeGrade.name}
+    %0AНавыки: ${this.$store.state.activeSkill}
+    %0AОпыт работы: ${this.$store.state.experience}
+    %0AПрофиль github: ${this.$store.state.githubData.username}`;
+    let each = this.$store.state.activeSkill;
+    each.forEach((e) => console.log(e.name));
     return this.$store.state;
   },
   methods: {
@@ -83,8 +95,13 @@ export default {
     hideDialog() {
       this.dialogVisible = false;
     },
-    showData() {
+    async sendData() {
       this.dialogVisible = true;
+      let response = await this.axios.post(
+        `https://api.telegram.org/bot${this.$store.state.token_bot}/sendMessage?chat_id=-515941328&text=${this.my_response}`
+      );
+      console.log(response);
+      console.log(this.$store.state.activeSkill);
       console.log(this.$store.state.user);
       console.log(this.$store.state.activeGrade);
       console.log(this.$store.state.activeSkill);
