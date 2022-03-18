@@ -1,6 +1,10 @@
 ## Form for creating a resume with validation and getting profile data from Github
 ![alt text](/src/assets/img/screen.png)
 
+
+## Add telegram chat to send data
+# telegram chanel to check: https://t.me/+Zcd_q-gi0PJjMzNi
+
 ## Project setup
 ```
 npm install
